@@ -1,0 +1,6 @@
+module.exports = {
+
+  POST_PLAY_SUCCESS: 'POST_PLAY_SUCCESS',
+  POST_PLAY_FAIL: 'POST_PLAY_FAIL'
+
+};
