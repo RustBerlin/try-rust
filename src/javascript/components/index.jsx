@@ -12,9 +12,13 @@ module.exports = React.createClass({
 
   mixins: [ FluxMixin, Router.State ],
 
-  render: function () {
-    console.log(this.getParams());
+  statics: {
+    willTransitionTo: function (transition, params) {
+      if(transition.path === '/') transition.redirect('/welcome/1');
+    }
+  },
 
+  render: function () {
     return (
         <div>
           <Header />

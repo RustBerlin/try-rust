@@ -1,4 +1,0 @@
-# Hello World
-As you can see there is a loop with a lot of hello worlds
-
-And because we do not have a next link here we will provide you with a [Previous](/introduction/hello) link.

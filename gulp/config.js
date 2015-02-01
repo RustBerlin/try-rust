@@ -43,15 +43,10 @@ module.exports = {
     // A separate bundle will be generated for each
     // bundle config in the list below
     bundleConfigs: [{
-      entries: src + '/javascript/main.jsx',
+      entries: src + '/javascript/index.jsx',
       extensions: ['.jsx'],
       dest: dest,
-      outputName: 'main.js'
-    }, {
-      entries: src + '/javascript/patch.jsx',
-      extensions: ['.jsx'],
-      dest: dest,
-      outputName: 'patch.js'
+      outputName: 'index.js'
     }, {
       entries: src + '/javascript/lib.jsx',
       extensions: ['.jsx'],
