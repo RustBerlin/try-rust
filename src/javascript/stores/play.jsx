@@ -1,3 +1,4 @@
+var Fluxxor = require('fluxxor');
 var constants = require('../constants/play');
 
 module.exports = Fluxxor.createStore({

@@ -1,20 +1,19 @@
 /**
- * @Class Console
+ * @Class Editor
  */
 
 module.exports = React.createClass({
 
   propTypes: {
-    code: React.PropTypes.string.isRequired
+    defaultValue: React.PropTypes.string.isRequired,
+    handleChange: React.PropTypes.func.isRequired
   },
 
   render: function () {
     return (
-        <div className="l-box">
-          <form className="pure-form">
-            <textarea className="pure-input-1" name="code" value={this.props.code} />
-          </form>
-        </div>
+        <form>
+          <textarea name="editor" onChange={this.props.handleChange} value={this.props.value || this.props.defaultValue} />
+        </form>
     )
   }
 

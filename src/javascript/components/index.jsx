@@ -1,3 +1,4 @@
+var State = Router.State;
 var FluxMixin = Fluxxor.FluxMixin(React);
 
 var Header = require('./header');
@@ -10,11 +11,11 @@ var Tutorial = require('./tutorial');
 
 module.exports = React.createClass({
 
-  mixins: [ FluxMixin, Router.State ],
+  mixins: [FluxMixin, State],
 
   statics: {
     willTransitionTo: function (transition, params) {
-      if(transition.path === '/') transition.redirect('/welcome/1');
+      if (transition.path === '/') transition.redirect('/welcome/1');
     }
   },
 

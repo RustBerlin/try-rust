@@ -10,11 +10,9 @@ module.exports = React.createClass({
 
   render: function () {
     return (
-        <div className="l-box">
-          <form className="pure-form">
-            <textarea className="pure-input-1" name="console" disabled={true} value={this.props.text} />
-          </form>
-        </div>
+        <form>
+          <textarea name="console" readOnly value={this.props.text} />
+        </form>
     )
   }
 

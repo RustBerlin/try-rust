@@ -1,22 +1,124 @@
 @import "typography";
 
+$bgBlue: #E0EBF5;
+$bgWhite: #FFFFFF;
+$headerHeight: 40px;
+
+html, body {
+  height: 100%;
+}
+
 body {
-  padding: 35px 0px;
-  background-color: #E0EBF5;
+  background-color: $bgBlue;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  height: $headerHeight;
+
+  background: #fff;
+  border-bottom: 1px solid #b7b7b7;
+
+  h1 {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    margin: 0 10px;
+
+    color: gray;
+    font-size: 1.5em;
+  }
 }
 
 .tutorial {
-  .l-box {
-    background-color: #fff;
-    margin: 0.5em;
-    padding: 0.5em;
+  position: fixed;
+  top: $headerHeight+1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  h1:first-of-type {
+    margin-top: 0;
   }
 
-  textarea[name="code"] {
-    min-height: 500px;
+  .left, .right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+
+    background-color: $bgBlue;
   }
 
-  textarea[name="console"] {
-    min-height: 200px;
+  .left {
+    right: 50%;
   }
+
+  .right {
+    left: 50%;
+  }
+
+  div.horizontal {
+    margin: -4px 0;
+    height: 8px;
+    cursor: ns-resize;
+
+    z-index: 1;
+  }
+
+  div.vertical {
+    position: absolute;
+    top: 0;
+    right: 50%;
+    bottom: 0;
+    left: 50%;
+
+    margin: 0 -4px;
+    width: 8px;
+    cursor: ew-resize;
+
+    z-index: 1;
+
+    background-color: $bgBlue;
+  }
+
+  .markdown {
+    height: 100%;
+  }
+
+  form, .markdown {
+    margin: 4px;
+    background-color: $bgWhite;
+  }
+
+  form, .markdown {
+    padding: 6px;
+  }
+
+  form:first-of-type {
+    height: 66%;
+  }
+
+  form:last-of-type {
+    height: 29%;
+  }
+
+  textarea {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+
+
+
 }
