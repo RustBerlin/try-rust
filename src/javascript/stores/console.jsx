@@ -4,7 +4,7 @@ module.exports = Fluxxor.createStore({
 
   initialize: function () {
     this.state = {
-      stdout: 'asdf',
+      stdout: '',
       isLoadingCode: false,
       isLoadingCodeError: false
     };
@@ -22,7 +22,7 @@ module.exports = Fluxxor.createStore({
   },
 
   onPostConsoleSuccess: function (stdout) {
-    this.state.stdout = stdout || 'asdf';
+    this.state.stdout = stdout || '';
     this.state.isLoadingCode = false;
     this.state.isLoadingCodeError = false;
     this.emit('change');

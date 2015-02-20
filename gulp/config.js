@@ -1,5 +1,5 @@
-var dest = "./build";
-var src = './src';
+var dest = __dirname + "/../build";
+var src = __dirname + '/../src';
 
 var historyApiFallback = require('connect-history-api-fallback');
 
