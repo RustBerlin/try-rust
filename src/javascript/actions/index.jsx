@@ -1,7 +1,7 @@
-var play = require('./play');
-var files = require('./files');
+var console = require('./console');
+var editor = require('./editor');
 
 module.exports = {
-  play: play,
-  files: files
+  console: console,
+  editor: editor
 };

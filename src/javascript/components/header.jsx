@@ -2,7 +2,7 @@
  * @Class Header
  */
 
-module.exports = React.createClass({
+var Header = React.createClass({
 
   render: function () {
     return (
@@ -13,3 +13,5 @@ module.exports = React.createClass({
   }
 
 });
+
+module.exports = Header;

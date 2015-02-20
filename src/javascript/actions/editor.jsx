@@ -1,5 +1,5 @@
 var reqwest = require('reqwest');
-var constants = require('../constants/files');
+var constants = require('../constants/editor');
 
 module.exports = {
 
@@ -16,8 +16,8 @@ module.exports = {
         .fail(err => this.dispatch(constants.GET_MARKDOWN_FAIL, err));
   },
 
-  getRust: function () {
-    this.dispatch(constants.GET_RUST);
+  getCode: function () {
+    this.dispatch(constants.GET_CODE);
 
     reqwest({
       method: 'GET',
@@ -25,9 +25,12 @@ module.exports = {
       contentType: 'text/plain',
       type: 'html'
     })
-        .then(payload => this.dispatch(constants.GET_RUST_SUCCESS, payload))
-        .fail(err => this.dispatch(constants.GET_RUST_FAIL, err));
+        .then(payload => this.dispatch(constants.GET_CODE_SUCCESS, payload))
+        .fail(err => this.dispatch(constants.GET_CODE_FAIL, err));
+  },
 
+  setCode: function (payload) {
+    this.dispatch(constants.SET_CODE, payload);
   }
 
 };

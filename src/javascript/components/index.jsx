@@ -9,7 +9,7 @@ var Tutorial = require('./tutorial');
  * @Class Index
  */
 
-module.exports = React.createClass({
+var Index = React.createClass({
 
   mixins: [FluxMixin, State],
 
@@ -29,3 +29,5 @@ module.exports = React.createClass({
   }
 
 });
+
+module.exports = Index;

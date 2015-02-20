@@ -8,13 +8,15 @@ var flux = require('../flux');
 var Editor = require('./editor');
 var Console = require('./console');
 
+var config = require('../config/console');
+
 /**
  * @Class Tutorial
  */
 
-module.exports = React.createClass({
+var Tutorial = React.createClass({
 
-  mixins: [FluxMixin, StoreWatchMixin('playStore', 'filesStore')],
+  mixins: [Navigation, FluxMixin, StoreWatchMixin('consoleStore', 'editorStore')],
 
   statics: {
     /**
@@ -24,47 +26,55 @@ module.exports = React.createClass({
      * @param {String} params.task Name of file in /src/tutorials/CHAPTER_NAME
      */
     willTransitionTo: function (transition, params) {
-      flux.actions.files.getMarkdown();
-      flux.actions.files.getRust();
-    }
-  },
-
-  getInitialState: function () {
-    return {
-      editor: undefined
+      flux.actions.editor.getMarkdown();
+      flux.actions.editor.getCode();
     }
   },
 
   getStateFromFlux: function () {
-    return this.getFlux().store('filesStore').getState();
+    return {
+      editor: this.getFlux().store('editorStore').getState(),
+      console: this.getFlux().store('consoleStore').getState()
+    }
   },
 
   handleEditorChange: function (event) {
-    console.log(event.target.value);
+    var target = event.target;
+    flux.actions.editor.setCode(target.value);
   },
 
   handleClick: function (event) {
-    event.preventDefault();
-    alert(event);
+    var href = event.target.getAttribute('href') || '';
+    var isLocalLink = href[0] === '/';
+
+    if(isLocalLink) {
+      event.preventDefault();
+      this.transitionTo(href);
+    }
+  },
+
+  handleCompileClick: function () {
+    this.getFlux().actions.console.compile(this.state.editor.code);
   },
 
   render: function () {
     return (
         <div className="tutorial">
           <div className="left">
-            <Editor handleChange={this.handleEditorChange} value={this.state.editor} defaultValue={this.state.rust} />
+            <Editor handleChange={this.handleEditorChange} value={this.state.editor.code} />
             <div className="horizontal" />
-            <Console text={'asdf'} />
+            <Console handleCompileClick={this.handleCompileClick} value={this.state.console.isLoadingCode ? config.isLoadingText : this.state.console.stdout} />
           </div>
           <div className="vertical" />
           <div className="right">
-            <div onClick={this.handleClick} className="markdown">
-              <div dangerouslySetInnerHTML={{__html: markdown.toHTML(this.state.markdown)}} />
+            <div className="markdown">
+              <div onClick={this.handleClick} dangerouslySetInnerHTML={{__html: markdown.toHTML(this.state.editor.markdown)}} />
             </div>
           </div>
         </div>
-
     )
   }
 
 });
+
+module.exports = Tutorial;

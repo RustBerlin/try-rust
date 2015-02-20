@@ -1,7 +1,7 @@
-var PlayStore = require('./play');
-var FilesStore = require('./files');
+var EditorStore = require('./editor');
+var ConsoleStore = require('./console');
 
 module.exports = {
-  playStore: new PlayStore(),
-  filesStore: new FilesStore()
+  editorStore: new EditorStore(),
+  consoleStore: new ConsoleStore()
 };

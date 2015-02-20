@@ -2,19 +2,21 @@
  * @Class Editor
  */
 
-module.exports = React.createClass({
+var Editor = React.createClass({
 
   propTypes: {
-    defaultValue: React.PropTypes.string.isRequired,
-    handleChange: React.PropTypes.func.isRequired
+    handleChange: React.PropTypes.func.isRequired,
+    value: React.PropTypes.string.isRequired
   },
 
   render: function () {
     return (
-        <form>
-          <textarea name="editor" onChange={this.props.handleChange} value={this.props.value || this.props.defaultValue} />
-        </form>
+        <div className="editor">
+          <textarea name="editor" onChange={this.props.handleChange} value={this.props.value} />
+        </div>
     )
   }
 
 });
+
+module.exports = Editor;

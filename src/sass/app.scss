@@ -67,14 +67,6 @@ body {
     left: 50%;
   }
 
-  div.horizontal {
-    margin: -4px 0;
-    height: 8px;
-    cursor: ns-resize;
-
-    z-index: 1;
-  }
-
   div.vertical {
     position: absolute;
     top: 0;
@@ -92,33 +84,91 @@ body {
   }
 
   .markdown {
+    padding: 6px;
     height: 100%;
-  }
-
-  form, .markdown {
-    margin: 4px;
     background-color: $bgWhite;
   }
 
-  form, .markdown {
-    padding: 6px;
+  .left {
+    
+    & > div {
+      position: absolute;
+    }
+
+    .editor {
+      left: 0;
+      right: 0;
+      bottom: 34%;
+      top: 0;
+    }
+
+    .horizontal {
+      left: 0;
+      right: 0;
+      bottom: 34%;
+      top: 67%;
+
+      margin: -4px 0;
+      height: 1%;
+      cursor: ns-resize;
+    }
+
+
+    .console {
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 67%;
+
+      textarea {
+        top: 30px;
+      }
+
+      .menu {
+        position: relative;
+
+        height: 30px;
+        padding: 4px;
+
+        background: rgba(0,0,0,0.25);
+      }
+
+      .compile {
+        float: right;
+
+        padding: 4px 4px 1px 4px;
+        margin: 0 8px 0 0;
+
+        display: inline-block;
+
+        border: 1px solid black;
+        background: white;
+        border-radius: 4px;
+
+        cursor: pointer;
+
+        &:hover {
+          color: white;
+          background: black;
+        }
+      }
+    }
+
+    textarea {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      width: 100%;
+
+      box-sizing: border-box;
+      border: 0;
+      resize: none;
+      outline: none;
+    }
+
   }
-
-  form:first-of-type {
-    height: 66%;
-  }
-
-  form:last-of-type {
-    height: 29%;
-  }
-
-  textarea {
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-  }
-
-
-
 
 }
